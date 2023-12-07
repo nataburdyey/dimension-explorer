@@ -1,44 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { useEffect } from 'react'
-import { themeChange } from 'theme-change'
-import ThemeToggle from './components/ThemeToggle'
+import { useQuery } from 'react-query'
 import './App.css'
 
+import Graph from "./components/Graph";
+
 function App() {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    themeChange(false)
-    // 👆 false parameter is required for react project
-  }, [])
+  const { isLoading, error, data } = useQuery('data', () =>
+    import('./data.json').then(res => res.data)
+  )
+  if (isLoading) return 'Loading...'
+
+  if (error) return 'An error has occurred: ' + error.message
 
   return (
     <main className="container mx-auto p-3">
-      <div className="absolute top-0 right-0">
-        <ThemeToggle />
-      </div>  
-
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Graph data={data} />
     </main>
   )
 }
