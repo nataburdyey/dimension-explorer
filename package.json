@@ -9,6 +9,7 @@
     "dev": "run-p -l dev:*",
     "build:tailwind": "tailwindcss -i ./src/index.css -o ./dist/output.css",
     "build:vite": "vite build",
+    "build:data": "mkdir -p ./dist/src; cp ./src/data.json ./dist/src/data.json",
     "build": "run-s -l build:*",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
