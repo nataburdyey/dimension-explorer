@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { plot } from '@observablehq/plot';
 
 const ObservablePlot = ({ config, ...args }) => {
