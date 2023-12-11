@@ -13,7 +13,7 @@ A user should be able to do the following things:
 - [x] Users can choose any combination of any number of dimensions to display.
 - [x] This UI can be used to visualize different data sets with different dimensionality.  
 - [x] Indicate loading and error states.
-- [x] The App was deployed to Netlify.
+- [x] The App was deployed to Netlify: https://dimension-explorer.netlify.app/
 
 ## Implementations Details
 ### Data Fetching and Management:
