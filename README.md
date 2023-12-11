@@ -1,6 +1,7 @@
 # Dimension Explorer App
 
 Explore and filter high-dimensional data sets with ease. Choose the dimensions you want to analyze, set minimum and maximum values, and visualize the results interactively.
+![Screenshot](./public/dimension-explorer.png)
 
 ## To Run Local Build
 `npm run dev`
