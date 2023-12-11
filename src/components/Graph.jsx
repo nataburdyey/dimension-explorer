@@ -59,7 +59,6 @@ const Graph = ({ data }) => {
   const yMIN = Math.min(...yValues);
   const yMAX = Math.max(...yValues);
   const ySTEP = (yMAX - yMIN) / 100;
-  console.log({ xMin, xMax, yMin, yMax }, { xMIN, xMAX, yMIN, yMAX }, { xSTEP, ySTEP });
 
   const filtered = data.filter(
     (d) =>
@@ -102,7 +101,6 @@ const Graph = ({ data }) => {
             step={ySTEP}
             value={[yMin, yMax]}
             onInput={([min, max]) => {
-              console.log({ min, max });
               setYMin(min);
               setYMax(max);
             }}
