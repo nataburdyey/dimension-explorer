@@ -3,10 +3,15 @@ import { useQuery } from 'react-query';
 import './App.css';
 import Graph from './components/Graph';
 
+const dataUrl = './src/data.json';
+
 function App() {
-  const { isLoading, error, data } = useQuery('data', () =>
-    import('./data.json').then((res) => res.data)
-  );
+  const { isLoading, error, data } = useQuery('data', async () => {
+    const response = await fetch(dataUrl);
+    const json = await response.json();
+    return json.data;
+  });
+
   if (isLoading) return 'Loading...';
 
   if (error) return 'An error has occurred: ' + error.message;
